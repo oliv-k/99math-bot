@@ -42,11 +42,11 @@ def buttons(button):
 
 # does a calculaton based on the symbol
 def calculate(symbol, num1, num2):
-    if tehe == '-':
+    if symbol == '-':
         answer = num1 - num2
-    elif tehe == '+':
+    elif symbol == '+':
         answer = num1 + num2
-    elif tehe == 'x':
+    elif symbol == 'x':
         answer = num1 * num2
     else:
         answer = num1 // num2
