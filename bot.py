@@ -88,7 +88,7 @@ def põhiosa():
         except:
             ootamine()
 
-# ask the user game code and username
+# asks the user for game code and username
 kood = input('Sisestage mängu kood: ')
 nimi = input('Sisestage oma nimi: ')
 
