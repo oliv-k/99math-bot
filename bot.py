@@ -75,9 +75,9 @@ def main():
         answer = calculate(operation[1], int(operation[0]), int(operation[2]))
 
         # click the buttons basedon the answer
-        for i in range(len(list(vastus))):
+        for i in range(len(list(answer))):
             try:
-                buttons(vastus[i])
+                buttons(answer[i])
             except:
                 wait()
 
