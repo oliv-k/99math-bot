@@ -54,7 +54,7 @@ def calculate(symbol, num1, num2):
 
 # waits until the answer button is clickable
 # and also starts the main code
-def ootamine():
+def wait():
     wait.until(EC.element_to_be_clickable((
     By.XPATH, '/html/body/div[1]/div/div/div/div[2]/div[2]/div[2]/button[2]')))
     sleep(5)
