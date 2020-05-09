@@ -55,7 +55,7 @@ def calculate(symbol, num1, num2):
 # waits until the answer button is clickable
 # and also starts the main code
 def wait():
-    wait.until(EC.element_to_be_clickable((
+    wait_element.until(EC.element_to_be_clickable((
     By.XPATH, '/html/body/div[1]/div/div/div/div[2]/div[2]/div[2]/button[2]')))
     sleep(5)
     main()
@@ -89,15 +89,15 @@ def main():
             wait()
 
 # asks the user for game code and username
-code = input('Sisestage mängu kood: ')
-name = input('Sisestage oma nimi: ')
+code = input('Enter game code: ')
+name = input('Enter your name: ')
 
 # opening the browser
 driver = webdriver.Firefox()
 driver.get('http://www.99math.com/join/' + code)
 
 # browsers wait time
-wait = WebDriverWait(driver, 30)
+wait_element = WebDriverWait(driver, 30)
 
 # entering the username and joining the game
 driver.find_element_by_xpath('/html/body/div[1]/div/div/input').send_keys(name + '🤖')
