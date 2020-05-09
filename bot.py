@@ -41,16 +41,16 @@ def buttons(button):
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[4]/button[2]').click()
 
 # does a calculaton based on the symbol
-def arvutus(tehe, arv1, arv2):
+def calculate(symbol, num1, num2):
     if tehe == '-':
-        vastus = arv1 - arv2
+        answer = num1 - num2
     elif tehe == '+':
-        vastus = arv1 + arv2
+        answer = num1 + num2
     elif tehe == 'x':
-        vastus = arv1 * arv2
+        answer = num1 * num2
     else:
-        vastus = arv1 // arv2
-    return str(vastus)
+        answer = num1 // num2
+    return str(answer)
 
 # waits until the answer button is clickable
 # and also starts the main code
@@ -58,21 +58,21 @@ def ootamine():
     wait.until(EC.element_to_be_clickable((
     By.XPATH, '/html/body/div[1]/div/div/div/div[2]/div[2]/div[2]/button[2]')))
     sleep(5)
-    põhiosa()
+    main()
 
 # this part does all the main work
-def põhiosa():
+def main():
     while True:
         # get the operaton and split it to 3 parts
         try:
-            tehe = driver.find_element_by_xpath('/html/body/div[1]/div/div/div/div[2]/div[1]/h2').text
+            operation = driver.find_element_by_xpath('/html/body/div[1]/div/div/div/div[2]/div[1]/h2').text
         except:
             wait()
 
-        tehe = tehe.split(' ')
+        operation = int(operation.split(' '))
 
         # call the function to make the calculation
-        vastus = arvutus(tehe[1], int(tehe[0]), int(tehe[2]))
+        answer = calculate(operation[1], operation[0]), operation[2]))
 
         # click the buttons basedon the answer
         for i in range(len(list(vastus))):
