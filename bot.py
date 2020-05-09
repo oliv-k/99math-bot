@@ -5,35 +5,35 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # 99math's numpad
-def nupud(nupp):
-    if nupp == '1':
+def buttons(button):
+    if button == '1':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[1]/button[1]').click()
-    elif nupp == '2':
+    elif button == '2':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[1]/button[2]').click()
-    elif nupp == '3':
+    elif button == '3':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[1]/button[3]').click()
-    elif nupp == '4':
+    elif button == '4':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[2]/button[1]').click()
-    elif nupp == '5':
+    elif button == '5':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[2]/button[2]').click()
-    elif nupp == '6':
+    elif button == '6':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[2]/button[3]').click()
-    elif nupp == '7':
+    elif button == '7':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[3]/button[1]').click()
-    elif nupp == '8':
+    elif button == '8':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[3]/button[2]').click()
-    elif nupp == '9':
+    elif button == '9':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[3]/button[3]').click()
-    elif nupp == '-':
+    elif button == '-':
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[4]/button[1]').click()
     else:
@@ -55,7 +55,7 @@ def arvutus(tehe, arv1, arv2):
 # waits until the answer button is clickable
 # and also starts the main code
 def ootamine():
-    oota.until(EC.element_to_be_clickable((
+    wait.until(EC.element_to_be_clickable((
     By.XPATH, '/html/body/div[1]/div/div/div/div[2]/div[2]/div[2]/button[2]')))
     sleep(5)
     põhiosa()
@@ -67,7 +67,7 @@ def põhiosa():
         try:
             tehe = driver.find_element_by_xpath('/html/body/div[1]/div/div/div/div[2]/div[1]/h2').text
         except:
-            ootamine()
+            wait()
 
         tehe = tehe.split(' ')
 
@@ -77,31 +77,31 @@ def põhiosa():
         # click the buttons basedon the answer
         for i in range(len(list(vastus))):
             try:
-                nupud(vastus[i])
+                buttons(vastus[i])
             except:
-                ootamine()
+                wait()
 
         # click on the answer button
         try:
             driver.find_element_by_xpath(
             '/html/body/div[1]/div/div/div/div[2]/div[2]/div[2]/button[2]').click()
         except:
-            ootamine()
+            wait()
 
 # asks the user for game code and username
-kood = input('Sisestage mängu kood: ')
-nimi = input('Sisestage oma nimi: ')
+code = input('Sisestage mängu kood: ')
+name = input('Sisestage oma nimi: ')
 
 # opening the browser
 driver = webdriver.Firefox()
-driver.get('http://www.99math.com/join/' + kood)
+driver.get('http://www.99math.com/join/' + code)
 
 # browsers wait time
-oota = WebDriverWait(driver, 30)
+wait = WebDriverWait(driver, 30)
 
 # entering the username and joining the game
-driver.find_element_by_xpath('/html/body/div[1]/div/div/input').send_keys(nimi + '🤖')
+driver.find_element_by_xpath('/html/body/div[1]/div/div/input').send_keys(name + '🤖')
 driver.find_element_by_xpath('/html/body/div[1]/div/div/button').click()
 
 # waits and then starts the main code
-ootamine()
+wait()
