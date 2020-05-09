@@ -69,10 +69,10 @@ def main():
         except:
             wait()
 
-        operation = int(operation.split(' '))
+        operation = operation.split(' ')
 
         # call the function to make the calculation
-        answer = calculate(operation[1], operation[0], operation[2])
+        answer = calculate(operation[1], int(operation[0]), int(operation[2]))
 
         # click the buttons basedon the answer
         for i in range(len(list(vastus))):
