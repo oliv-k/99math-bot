@@ -33,9 +33,6 @@ def buttons(button):
     elif button == 9:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[3]/button[3]').click()
-    elif button == '-':
-        driver.find_element_by_xpath(
-        '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[4]/button[1]').click()
     else:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[4]/button[2]').click()
