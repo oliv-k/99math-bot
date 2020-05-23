@@ -50,7 +50,7 @@ def calculate(symbol, num1, num2):
         answer = num1 * num2
     else:
         answer = num1 // num2
-    return str(answer)
+    return answer
 
 # waits until the answer button is clickable
 # and also starts the main code
