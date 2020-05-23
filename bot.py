@@ -6,31 +6,31 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # 99math's numpad
 def buttons(button):
-    if button == '1':
+    if button == 1:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[1]/button[1]').click()
-    elif button == '2':
+    elif button == 2:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[1]/button[2]').click()
-    elif button == '3':
+    elif button == 3:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[1]/button[3]').click()
-    elif button == '4':
+    elif button == 4:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[2]/button[1]').click()
-    elif button == '5':
+    elif button == 5:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[2]/button[2]').click()
-    elif button == '6':
+    elif button == 6:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[2]/button[3]').click()
-    elif button == '7':
+    elif button == 7:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[3]/button[1]').click()
-    elif button == '8':
+    elif button == 8:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[3]/button[2]').click()
-    elif button == '9':
+    elif button == 9:
         driver.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/div[2]/div[2]/div[1]/div[3]/button[3]').click()
     elif button == '-':
@@ -100,7 +100,7 @@ driver.get('http://www.99math.com/join/' + code)
 wait_element = WebDriverWait(driver, 30)
 
 # entering the username and joining the game
-driver.find_element_by_xpath('/html/body/div[1]/div/div/input').send_keys(name + '🤖')
+driver.find_element_by_xpath('/html/body/div[1]/div/div/input').send_keys(name)
 driver.find_element_by_xpath('/html/body/div[1]/div/div/button').click()
 
 # waits and then starts the main code
